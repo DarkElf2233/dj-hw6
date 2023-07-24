@@ -1,0 +1,96 @@
+
+@baseUrl = http://127.0.0.1:8000/api/v1
+
+# получение продуктов
+GET {{baseUrl}}/products/
+
+###
+
+# создание продукта
+POST {{baseUrl}}/products/
+Content-Type: application/json
+
+{
+  "title": "Персики",
+  "description": "Самые сочные персики"
+}
+
+###
+
+# обновление продукта
+PATCH {{baseUrl}}/products/6/
+Content-Type: application/json
+
+{
+  "description": "Самые сочные и ароматные помидорки"
+}
+
+###
+
+# удаление продукта
+DELETE {{baseUrl}}/products/9/
+Content-Type: application/json
+
+###
+
+# поиск продуктов по имени и описанию
+GET {{baseUrl}}/products/?s=помид
+
+###
+
+# получение всех складов
+GET {{baseUrl}}/stocks/
+
+###
+
+# создание склада
+POST {{baseUrl}}/stocks/
+Content-Type: application/json
+
+{
+  "address": "www.сочи-спб.ru3",
+  "positions": [
+    {
+      "product": 7,
+      "quantity": 350,
+      "price": 120.50
+    },
+    {
+      "product": 8,
+      "quantity": 200,
+      "price": 180.70
+    }
+  ]
+}
+
+###
+
+# обновление склада
+PATCH {{baseUrl}}/stocks/4/
+Content-Type: application/json
+
+{
+  "positions": [
+    {
+      "product": 6,
+      "quantity": 200,
+      "price": 130.80
+    },
+    {
+      "product": 7,
+      "quantity": 243,
+      "price": 200.00
+    }
+  ]
+}
+
+###
+
+# удаление склада
+DELETE {{baseUrl}}/stocks/6/
+Content-Type: application/json
+
+###
+
+# получение склада с определённым продуктом
+GET {{baseUrl}}/stocks/?products=7
